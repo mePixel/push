@@ -8,7 +8,7 @@
   </head>
   <body>
     <button onclick="subscribe()">subscribe</button>
-
+    <div id="test"></div>
     <script>
       addEventListener("load", async () => {
         let sw = await navigator.serviceWorker.register("./sw.js");
@@ -22,7 +22,7 @@
           applicationServerKey:
             "BCohg_Q7urt4q8suITza2p1XZPFEENCIneO5PhbQ4ezj1xVstG9IW1xzwoHkStqSw0S4Ag7T3rXPUJpvu2wZGrY"
         });
-        document.getElementsByTagName("body").innerHTML += JSON.stringify(push);
+        document.getElementById("test").innerHTML = JSON.stringify(push);
         console.log(JSON.stringify(push));
       }
     </script>

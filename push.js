@@ -25,5 +25,4 @@ for (var i = 0; i < 10; i++) {
   };
 
   push.sendNotification(sub, "message");
-  await new Promise(r => setTimeout(r, 1000));
 }

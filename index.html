@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <button onclick="subscribe()">subscribe</button>
 
     <script>
-    addEventListener('load', async () => {
-        let sw = await navigator.serviceWorker.register('./sw.js');
+      addEventListener("load", async () => {
+        let sw = await navigator.serviceWorker.register("./sw.js");
         console.log(sw);
-    });
+      });
 
-    async function subscribe(){
+      async function subscribe() {
         let sw = await navigator.serviceWorker.ready;
         let push = await sw.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: 'BCohg_Q7urt4q8suITza2p1XZPFEENCIneO5PhbQ4ezj1xVstG9IW1xzwoHkStqSw0S4Ag7T3rXPUJpvu2wZGrY'
+          userVisibleOnly: true,
+          applicationServerKey:
+            "BCohg_Q7urt4q8suITza2p1XZPFEENCIneO5PhbQ4ezj1xVstG9IW1xzwoHkStqSw0S4Ag7T3rXPUJpvu2wZGrY"
         });
+        document.innerHTML += JSON.stringify(push);
         console.log(JSON.stringify(push));
-        
-    }
+      }
     </script>
-</body>
+  </body>
 </html>
